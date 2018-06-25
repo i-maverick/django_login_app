@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
-from django.shortcuts import render
+from django.http import JsonResponse, HttpResponse
+from django.shortcuts import render, render_to_response
+from django.template.loader import render_to_string
 from django.views.generic import FormView
 
 from . import forms
@@ -28,3 +29,12 @@ class MainView(FormView):
 def input_text(request):
     data = {'code': 200, 'text': 'Ok'}
     return JsonResponse(data)
+
+
+def main(request):
+    return render_to_response('app/main.html', context={'test': 'test', 'data': 'data'})
+
+
+def load_test(request):
+    id = request.GET['id']
+    return HttpResponse(render_to_string('app/load_test.html', context={'id': id}))

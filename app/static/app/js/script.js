@@ -29,4 +29,10 @@ $().ready(function() {
             console.log(data)
         });
     });
+
+    $('#id_main').click(function() {
+        $.get('app/main/', {}, function (data) {
+            console.log(data);
+        })
+    });
 });
