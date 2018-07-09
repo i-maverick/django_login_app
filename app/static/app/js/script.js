@@ -40,7 +40,7 @@ $().ready(function() {
         var obj = $(this).serializeJSON();
         var jsonString = JSON.stringify(obj);
         $.post('app/submit_form/', {data: jsonString}, function(data) {
-            console.log(data);
+            console.log(data.data);
         });
         return false;
     });

@@ -48,6 +48,4 @@ def load_test(request):
 def submit_form(request):
     data = request.POST['data']
     print(data)
-    j = json.loads(data)
-    print(j)
-    return JsonResponse(j)
+    return JsonResponse({'data': data})
