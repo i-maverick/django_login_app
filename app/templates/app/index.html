@@ -14,13 +14,14 @@
 {#<hr>#}
 {#<a href="" id="id_main">main</a>#}
 
-<form action="/" method="post">
-    {% csrf_token %}
+<form id="id_form" action="" method="">
+{#    {% csrf_token %}#}
     {{ form }}
-    <input type="submit" value="Submit" />
+    <input id="id_submit" type="submit" value="Submit" />
 </form>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="{% static 'app/js/jquery.serializejson.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'app/js/script.js' %}"></script>
 </body>
 </html>

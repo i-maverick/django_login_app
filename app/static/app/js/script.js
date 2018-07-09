@@ -35,4 +35,13 @@ $().ready(function() {
             console.log(data);
         })
     });
+
+    $('#id_form').submit(function () {
+        var obj = $(this).serializeJSON();
+        var jsonString = JSON.stringify(obj);
+        $.post('app/submit_form/', {data: jsonString}, function(data) {
+            console.log(data);
+        });
+        return false;
+    });
 });

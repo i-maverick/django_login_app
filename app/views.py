@@ -20,7 +20,6 @@ class MainView(FormView):
     template_name = 'app/index.html'
 
     def get(self, request, *args, **kwargs):
-        print(request)
         j = '{"select1": 1, "select2": 2, "select3": 3, "check1": 1, "check3": 1}'
         j1 = json.loads(j)
         print(j1)
@@ -44,3 +43,11 @@ def main(request):
 def load_test(request):
     id = request.GET['id']
     return HttpResponse(render_to_string('app/load_test.html', context={'id': id}))
+
+
+def submit_form(request):
+    data = request.POST['data']
+    print(data)
+    j = json.loads(data)
+    print(j)
+    return JsonResponse(j)
