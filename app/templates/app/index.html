@@ -2,17 +2,24 @@
 <head><title>Index</title></head>
 {% load static %}
 <body>
-Index
-{% if perms.test.change %}
-    Can edit
-{% endif %}
-<form id="form" class="form" action="" method="post">
+{#Index#}
+{#{% if perms.test.change %}#}
+{#    Can edit#}
+{#{% endif %}#}
+{#<form id="form" class="form" action="" method="post">#}
+{#    {% csrf_token %}#}
+{#    <input type="text" id="input-text"/>#}
+{#</form>#}
+{#<button id="button-enter">Enter</button>#}
+{#<hr>#}
+{#<a href="" id="id_main">main</a>#}
+
+<form action="/" method="post">
     {% csrf_token %}
-    <input type="text" id="input-text"/>
+    {{ form }}
+    <input type="submit" value="Submit" />
 </form>
-<button id="button-enter">Enter</button>
-<hr>
-<a href="#" id="id_main">main</a>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="{% static 'app/js/script.js' %}"></script>
 </body>

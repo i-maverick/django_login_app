@@ -1,3 +1,5 @@
+import json
+
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, render_to_response
@@ -19,11 +21,15 @@ class MainView(FormView):
 
     def get(self, request, *args, **kwargs):
         print(request)
-        form = self.form_class()
+        j = '{"select1": 1, "select2": 2, "select3": 3, "check1": 1, "check3": 1}'
+        j1 = json.loads(j)
+        print(j1)
+        form = self.form_class(initial=j1)
         return render(request, self.template_name, {'form': form})
 
     def post(self, request, *args, **kwargs):
-        print(request)
+        form = self.form_class(request.POST)
+        return render(request, self.template_name, {'form': form})
 
 
 def input_text(request):
